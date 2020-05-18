@@ -1,0 +1,2 @@
+"mongoURI": "mongodb://localhost:27017/CampusMedia",
+"mongoURI" : "mongodb+srv://user:user@cluster0-m8jlg.mongodb.net/test?retryWrites=true&w=majority",
