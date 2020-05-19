@@ -5,7 +5,7 @@ import { Grid, makeStyles, Typography,Box,Container,Tabs,Tab} from '@material-ui
 const useStyles = makeStyles((theme) => ({
     profileimage:{
         position:'absolute',
-        marginTop:130
+        top: 190
 
     }
 
@@ -17,14 +17,14 @@ const ProfileHeader = ({value}) => {
     
     return (
         <Container >
-            <Grid container justify='center'>
-            <Box>
-            <img src={require('../../images/homeback.jpg')}/>
-            </Box>
             
-            <img src={require('../../images/uoklogo.png')} className={classes.profileimage}/>
-        
+            <Grid container justify='center'>
+            <img src={require('../../images/homeback.jpg')}/>
             </Grid>
+            <Grid container justify='center'>
+            <img src={require('../../images/uoklogo.png')} className={classes.profileimage}/>
+            </Grid>
+            
             <Grid container justify='center'>
                 <Typography variant="h4">Anjna Shakthi</Typography>
             </Grid>
