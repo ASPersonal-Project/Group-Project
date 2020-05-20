@@ -1,23 +1,18 @@
-import React from 'react';
+import React,{useState} from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-
 import Overview from './Overview';
+import { Container,Tabs,Tab,Box,makeStyles } from '@material-ui/core';
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+const TabPanel = (props) => {
+  const { children, value, index, } = props;
 
   return (
+    
     <div
       role="tabpanel"
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
+      aria-labelledby={`vertical-tab-${index}`}  
     >
       {value === index && (
         <Box p={3}>
@@ -34,12 +29,6 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-function a11yProps(index) {
-  return {
-    id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
-  };
-}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,13 +43,14 @@ const useStyles = makeStyles((theme) => ({
 
 const AboutCard = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
+    <Container>
     <div className={classes.root}>
       <Tabs
         orientation="vertical"
@@ -69,13 +59,13 @@ const AboutCard = () => {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Overview" {...a11yProps(0)} />
-        <Tab label="Education" {...a11yProps(1)} />
-        <Tab label="Place You are Living" {...a11yProps(2)} />
-        <Tab label="Contact and Info" {...a11yProps(3)} />
+        <Tab label="Overview"   />
+        <Tab label="Education" />
+        <Tab label="Place You are Living"  />
+        <Tab label="Contact and Info"  />
       </Tabs>
       <TabPanel value={value} index={0}>
-        {/* <Overview/> */}
+        <Overview/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
@@ -89,13 +79,8 @@ const AboutCard = () => {
       <TabPanel value={value} index={4}>
         Item Five
       </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
-      </TabPanel>
     </div>
+    </Container>
   );
 };
 
