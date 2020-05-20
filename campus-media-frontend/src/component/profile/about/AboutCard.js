@@ -1,7 +1,10 @@
 import React,{useState} from 'react';
 import PropTypes from 'prop-types';
-import Overview from './Overview';
 import { Container,Tabs,Tab,Box,makeStyles } from '@material-ui/core';
+
+import Overview from './Overview';
+import Education from './Education';
+import ContactAndBasic from './ContactAndBasic';
 
 const TabPanel = (props) => {
   const { children, value, index, } = props;
@@ -68,16 +71,13 @@ const AboutCard = () => {
         <Overview/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <Education/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item Five
+        <ContactAndBasic/>
       </TabPanel>
     </div>
     </Container>

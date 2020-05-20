@@ -24,7 +24,7 @@ const Overview = ()=> {
             <School />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="University of Kelaniya" secondary="Jan 9, 2014" />
+        <ListItemText primary="Department of Software Engineering" secondary="Jan 9, 2014" />
       </ListItem>
       <ListItem>
         <ListItemAvatar>
