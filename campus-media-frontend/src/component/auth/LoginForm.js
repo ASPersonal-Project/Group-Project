@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link,withRouter} from 'react-router-dom';
 import {Box,TextField,Button, makeStyles, Typography} from '@material-ui/core';
 import {signIn} from '../../actions/authAction';
 import { connect } from 'react-redux';
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-const LoginForm = ({signIn}) => {
+const LoginForm = ({history,signIn}) => {
     const classes = useStyles();
     const [state,setState] = useState({email:'',password:''})
 
@@ -31,7 +31,7 @@ const LoginForm = ({signIn}) => {
     const onSubmit = (e) => {
         e.preventDefault();
         // console.log(state);
-        signIn(state);
+        signIn(state,history);
 
     }
     return (
@@ -64,4 +64,4 @@ const LoginForm = ({signIn}) => {
     )
 }
 
-export default connect(null,{signIn})(LoginForm);
+export default withRouter(connect(null,{signIn})(LoginForm));

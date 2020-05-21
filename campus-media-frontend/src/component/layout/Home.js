@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {useHistory} from 'react-router-dom';
 import LoginForm from '../auth/LoginForm';
 import { Typography,Grid, makeStyles,Box } from '@material-ui/core';
 import Backgrond from '../../images/homeback.jpg';
@@ -31,6 +32,12 @@ const useStyles = makeStyles((theme)=>({
 
 const Home = () => {
     const classes = useStyles();
+    const history = useHistory();
+
+    if(localStorage.token){
+        history.push('/profile');
+    }
+
     return (
         <Box className={classes.container}>
             <Grid container  className={classes.gridcontainer}>

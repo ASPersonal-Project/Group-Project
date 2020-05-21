@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {SIGNIN_SUCCESS} from './type';
 
-export const signIn = (data) =>async dispatch  =>{
+
+export const signIn = (data,history) =>async dispatch  =>{
     console.log(data);
     const config = {
         headers:{
@@ -12,6 +13,7 @@ export const signIn = (data) =>async dispatch  =>{
     try {
         const res = await axios.post('http://localhost:5000/api/v1/auth/',body,config);
         console.log(res.data);
+        history.push('/profile');
         dispatch({
             type:SIGNIN_SUCCESS,
             payload: res.data.token
