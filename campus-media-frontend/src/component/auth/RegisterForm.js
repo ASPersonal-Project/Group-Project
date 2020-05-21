@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {Grid,Box,TextField,Button, makeStyles, Typography,Checkbox,FormControlLabel,FormGroup, ThemeProvider} from '@material-ui/core';
+import {Grid,Box,TextField,Button, makeStyles, Typography,Checkbox,FormControlLabel,FormGroup} from '@material-ui/core';
 import {signUp} from '../../actions/authAction';
 import Backgrond from '../../images/homeback.jpg'
 

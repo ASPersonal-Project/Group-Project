@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Grid, makeStyles, Typography,Box,Container,Tabs,Tab} from '@material-ui/core';
+import { Grid, makeStyles, Typography,Container,Tabs,Tab} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     profileimage:{
@@ -19,10 +19,10 @@ const ProfileHeader = ({value}) => {
         <Container >
             
             <Grid container justify='center'>
-            <img src={require('../../images/homeback.jpg')}/>
+            <img src={require('../../images/homeback.jpg')} alt="backgourndimag"/>
             </Grid>
             <Grid container justify='center'>
-            <img src={require('../../images/uoklogo.png')} className={classes.profileimage}/>
+            <img src={require('../../images/uoklogo.png')} alt="uoklogo" className={classes.profileimage}/>
             </Grid>
             
             <Grid container justify='center'>

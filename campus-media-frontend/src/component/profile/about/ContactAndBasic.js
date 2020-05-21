@@ -2,14 +2,14 @@ import React from 'react';
 import {List,ListItemText,ListItem,Typography, makeStyles,ListItemAvatar,Avatar} from '@material-ui/core';
 import {Call,Home} from '@material-ui/icons';
 
-const useStyles = makeStyles((theme)=>({
-    nested: {
-        paddingLeft: theme.spacing(10),
-      },
-}))
+// const useStyles = makeStyles((theme)=>({
+//     nested: {
+//         paddingLeft: theme.spacing(10),
+//       },
+// }))
 
 const ContactAndBasic = () => {
-    const classes = useStyles();
+    // const classes = useStyles();
 
     var contactinfo = [
         {icon:<Call/>,textPrimary:'0712073771',textSecondary:'mobile'},

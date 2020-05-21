@@ -1,20 +1,20 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {List,ListItem,ListItemAvatar,Avatar,ListItemText} from '@material-ui/core';
-import {Work,School,Home,LocationOn, PhoneAndroid} from '@material-ui/icons';
+import {School,Home,LocationOn, PhoneAndroid} from '@material-ui/icons';
 
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+// const useStyles = makeStyles({
+//   root: {
+//     maxWidth: 345,
+//   },
+//   media: {
+//     height: 140,
+//   },
+// });
 
 const Overview = ()=> {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <List >

@@ -1,15 +1,21 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import {connect} from 'react-redux';
 import ProfileHeader from './ProfileHeader';
+import { fetchOwnerProfile } from '../../actions/profileAction';
 
 
-const Profile = () => {
+
+const Profile = ({fetchOwnerProfile}) => {
+    useEffect(() => {
+        fetchOwnerProfile()
+    }, [fetchOwnerProfile])
 
     return (
         <>
             <ProfileHeader value={0}/>
-            <div>profile</div>
+           
         </>
     )
 }
 
-export default Profile;
+export default connect(null,{fetchOwnerProfile})(Profile);

@@ -37,7 +37,7 @@ router.post('/',profilevalidate('createProfile'),auth,async (req, res)=>{
 //!get profile
 router.get('/me', auth, async (req,res)=> {
     try {
-        const profile = await Profile.findOne({user:req.userId});
+        const profile = await Profile.findOne({user:req.userId}).populate('user',['username']);
         res.json(profile);
     } catch (err) {
         console.log(err.message);
