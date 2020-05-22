@@ -1,15 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {List} from '@material-ui/core';
+import {List, makeStyles} from '@material-ui/core';
 import {School} from '@material-ui/icons';
 import {MainListItem,SubListItem} from './ListItem';
 
+const useStyles = makeStyles((theme)=>({
+  root: {
+    width: '100%',
+    maxWidth: 500,
+    backgroundColor: theme.palette.background.paper,
+  },
+}))
+
 
 const Education = ({profile}) => {
+
+const classes = useStyles();
   
     return (
       <>
-        <List >
+        <List className={classes.root}>
           <MainListItem header="Department"/>
           <SubListItem icon={<School/>} primary={profile.department} secondary="Deparmemt"/>
         </List>

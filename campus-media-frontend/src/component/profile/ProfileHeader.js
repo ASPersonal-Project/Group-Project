@@ -38,6 +38,7 @@ const ProfileHeader = ({value,profile}) => {
             >
             <Tab label="TimeLine" component={Link} to="/profile"  />
             <Tab label="About" component={Link} to="/about"  />
+            <Tab label="Friend" component={Link} to="/friend"  />
             <Tab label="Photo" component={Link} to="/photo"  />
         </Tabs>
     

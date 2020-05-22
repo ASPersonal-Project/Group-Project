@@ -9,6 +9,8 @@ import RegisterForm from './component/auth/RegisterForm';
 import Profile from './component/profile/Profile';
 import Photo from './component/profile/Photo';
 import About from './component/profile/About';
+import FriendList from './component/profile/FriendList';
+
 
 
 const App = () =>{
@@ -21,8 +23,10 @@ const App = () =>{
           <Route exact path='/' component={Home}/>
           <Route exact path='/register' component={RegisterForm}/>
           <Route exact path='/profile' component={Profile}/>
-          <Route exact path='/photo' component={Photo}/>
           <Route exact path='/about' component={About}/>
+          <Route exact path='/friend' component={FriendList}/>
+          <Route exact path='/photo' component={Photo}/>
+
         </Switch>
       </Router>
       

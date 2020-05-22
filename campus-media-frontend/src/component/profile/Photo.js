@@ -4,7 +4,7 @@ import ProfileHeader from './ProfileHeader';
 const Photo = () => {
     return (
         <>
-            <ProfileHeader value={2}/>
+            <ProfileHeader value={3}/>
             <div>photo</div>
         </>
     )

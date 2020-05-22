@@ -1,32 +1,33 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import {List,ListItem,ListItemAvatar,Avatar,ListItemText} from '@material-ui/core';
-import {School,Home,LocationOn, PhoneAndroid} from '@material-ui/icons';
-import {SubListItem} from './ListItem';
+import {List,ListItem,ListItemAvatar,Avatar,ListItemText,IconButton,ListItemSecondaryAction,ButtonGroup} from '@material-ui/core';
+import {School,Home,LocationOn, PhoneAndroid,Delete} from '@material-ui/icons';
+import {OverviewListItem} from './ListItem';
 
 
-// const useStyles = makeStyles({
-//   root: {
-//     maxWidth: 345,
-//   },
-//   media: {
-//     height: 140,
-//   },
-// });
+const useStyles = makeStyles((theme)=>({
+  root: {
+    width: '100%',
+    maxWidth: 500,
+    backgroundColor: theme.palette.background.paper,
+  },
+}))
 
 const Overview = ({profile})=> {
+  const classes = useStyles();
   
   return (
-    <>
-    {profile && <List>
-      <SubListItem icon={<School/>} primary={profile.department} secondary="Department"/>
-      <SubListItem icon={<School/>} primary={profile.school} secondary="School"/>
-      <SubListItem icon={<Home/>} primary={profile.currentcity} secondary="Current city"/>
-      <SubListItem icon={<LocationOn/>} primary={profile.currentcity} secondary="Home twon"/>
-      <SubListItem icon={<PhoneAndroid/>} primary={profile.phonenumber} secondary="Mobile"/>
+    <div className={classes.root}>
+    {profile && <List component="nav" aria-label="main mailbox folders">
+      <OverviewListItem icon={<School/>} primary={profile.department} secondary="Department"/>
+      <OverviewListItem icon={<School/>} primary={profile.school} secondary="School"/>
+      <OverviewListItem icon={<Home/>} primary={profile.currentcity} secondary="Current city"/>
+      <OverviewListItem icon={<LocationOn/>} primary={profile.currentcity} secondary="Home twon"/>
+      <OverviewListItem icon={<PhoneAndroid/>} primary={profile.phonenumber} secondary="Mobile"/>
+      
     </List>}
-    </>
+    </div>
   );
 }
 
