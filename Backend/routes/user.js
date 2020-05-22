@@ -38,7 +38,6 @@ router.post('/', authvalidate('createUser'), async (req, res) => {
         jwt.sign(
             payload,
             config.get('jwtSecret'),
-            {expiresIn : 3600},
             (err, token) => {
                 if(err) throw err;
                 res.json({token});

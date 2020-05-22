@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import {List,ListItem,ListItemAvatar,Avatar,ListItemText} from '@material-ui/core';
 import {School,Home,LocationOn, PhoneAndroid} from '@material-ui/icons';
+import {SubListItem} from './ListItem';
 
 
 // const useStyles = makeStyles({
@@ -13,54 +15,23 @@ import {School,Home,LocationOn, PhoneAndroid} from '@material-ui/icons';
 //   },
 // });
 
-const Overview = ()=> {
-  // const classes = useStyles();
-
+const Overview = ({profile})=> {
+  
   return (
-    <List >
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <School />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="Department of Software Engineering" secondary="Jan 9, 2014" />
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <School />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="ST.Thoms' Bodys College" secondary="Jan 7, 2014" />
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <Home/>
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="Lives in Matara" secondary="July 20, 2014" />
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <LocationOn/>
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="From Kamburugamuwa,Sri Lanka" secondary="July 20, 2014" />
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <PhoneAndroid/>
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="o71 20856978" secondary="July 20, 2014" />
-      </ListItem>
-    </List>
+    <>
+    {profile && <List>
+      <SubListItem icon={<School/>} primary={profile.department} secondary="Department"/>
+      <SubListItem icon={<School/>} primary={profile.school} secondary="School"/>
+      <SubListItem icon={<Home/>} primary={profile.currentcity} secondary="Current city"/>
+      <SubListItem icon={<LocationOn/>} primary={profile.currentcity} secondary="Home twon"/>
+      <SubListItem icon={<PhoneAndroid/>} primary={profile.phonenumber} secondary="Mobile"/>
+    </List>}
+    </>
   );
 }
 
+const mapStateToProps = state =>({
+  profile:state.profile.ownerProfile
+})
 
-export default Overview;
+export default connect(mapStateToProps)(Overview);

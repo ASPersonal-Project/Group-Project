@@ -9,6 +9,7 @@ const composeWithEnhancer = composeWithDevTools(applyMiddleware(...middleware));
 
 const configureStore = createStore(rootReducer,composeWithEnhancer);
 
+
 if(localStorage.token){
     setAuthToken(localStorage.token);
 }

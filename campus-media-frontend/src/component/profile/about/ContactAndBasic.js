@@ -1,55 +1,28 @@
 import React from 'react';
-import {List,ListItemText,ListItem,Typography, makeStyles,ListItemAvatar,Avatar} from '@material-ui/core';
-import {Call,Home} from '@material-ui/icons';
+import {connect} from 'react-redux';
+import {List} from '@material-ui/core';
+import {Call,Home,Cake,Wc} from '@material-ui/icons';
+import {SubListItem,MainListItem} from './ListItem';
 
-// const useStyles = makeStyles((theme)=>({
-//     nested: {
-//         paddingLeft: theme.spacing(10),
-//       },
-// }))
-
-const ContactAndBasic = () => {
-    // const classes = useStyles();
-
-    var contactinfo = [
-        {icon:<Call/>,textPrimary:'0712073771',textSecondary:'mobile'},
-        {icon:<Home/>,textPrimary:'66/A,RubberHena',textSecondary:'address'}
-    ]
-    // var info = [
-    //     {header:'Contact',icon:,itemtext:'Software Enginering'},
-    //     {header:'School',,itemtext:'St.Thoms collenge'},
-    // ]
+const ContactAndBasic = ({profile}) => {
     return (
+      <>
         <List >
-            <ListItem>
-          <ListItemText primary={<Typography
-                component="span"
-                variant="h5"
-                color="textPrimary"
-              >
-               Contact Info
-          </Typography>}/>
-          </ListItem>
-        {
-            contactinfo.map((contact)=>
-            <ListItem>
-            <ListItemAvatar>
-              <Avatar>
-                {contact.icon}
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={contact.textPrimary} secondary={contact.textSecondary} />
-          </ListItem>
-        )
-        }
-        
-        
-        
-         
-        
-        
+          <MainListItem header="Contact Info"/>
+          <SubListItem icon={<Call/>} primary={profile.phonenumber} secondary="Mobile"/>
+          <SubListItem icon={<Home/>} primary={profile.address} secondary="address"/>
         </List>
+
+        <List >
+          <MainListItem header="Basic Info"/>
+          <SubListItem icon={<Cake/>} primary={profile.birthday} secondary="Birthday"/>
+          <SubListItem icon={<Wc/>} primary={profile.gender} secondary="Gender"/>
+        </List>
+        </>
     )
 }
 
-export default ContactAndBasic;
+const mapStateToProps = state => ({
+  profile: state.profile.ownerProfile
+})
+export default connect(mapStateToProps)(ContactAndBasic);

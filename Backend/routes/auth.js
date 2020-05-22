@@ -14,7 +14,6 @@ router.post('/', authvalidate('logingUser'), async (req, res) => {
   
 
   try {
-    console.log(req.body);
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user)
@@ -32,7 +31,6 @@ router.post('/', authvalidate('logingUser'), async (req, res) => {
     jwt.sign(
       payload,
       config.get('jwtSecret'),
-      { expiresIn: 3600 },
       (err, token) => {
         if (err) throw err;
         res.json({ token });

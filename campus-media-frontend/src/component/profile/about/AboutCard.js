@@ -5,9 +5,9 @@ import { Container,Tabs,Tab,Box,makeStyles } from '@material-ui/core';
 import Overview from './Overview';
 import Education from './Education';
 import ContactAndBasic from './ContactAndBasic';
+import Place from './Place';
 
-const TabPanel = (props) => {
-  const { children, value, index, } = props;
+const TabPanel = ({children,value,index}) => {
 
   return (
     
@@ -74,7 +74,7 @@ const AboutCard = () => {
         <Education/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Place/>
       </TabPanel>
       <TabPanel value={value} index={3}>
         <ContactAndBasic/>

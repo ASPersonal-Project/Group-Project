@@ -11,7 +11,6 @@ import Photo from './component/profile/Photo';
 import About from './component/profile/About';
 
 
-
 const App = () =>{
   return (
     <div>
@@ -19,11 +18,9 @@ const App = () =>{
       <Router>
         <Navbar/>
         <Switch>
-          <Route exact path='/profile' component={Profile}/>
           <Route exact path='/' component={Home}/>
           <Route exact path='/register' component={RegisterForm}/>
-          
-          
+          <Route exact path='/profile' component={Profile}/>
           <Route exact path='/photo' component={Photo}/>
           <Route exact path='/about' component={About}/>
         </Switch>

@@ -1,4 +1,4 @@
-import {FETCH_OWNERFROFILE, FETCH_OWNERPROFILE} from '../actions/type';
+import { FETCH_OWNERPROFILE} from '../actions/type';
 
 const intialSatate = {
     ownerProfile: null

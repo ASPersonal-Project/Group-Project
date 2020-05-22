@@ -1,50 +1,29 @@
-import React from 'react'
-import {List,ListItem,Avatar,ListItemAvatar,ListItemText, makeStyles,Typography} from '@material-ui/core';
+import React from 'react';
+import {connect} from 'react-redux';
+import {List} from '@material-ui/core';
 import {School} from '@material-ui/icons';
+import {MainListItem,SubListItem} from './ListItem';
 
-const useStyles = makeStyles((theme)=>({
-  nested: {
-    paddingLeft: theme.spacing(10),
-  },
-}))
 
-const Education = () => {
-  const classes = useStyles();
-
-  var education = [
-    {header:'Department',icon:<School/>,itemtext:'Software Enginering'},
-    {header:'School',icon:<School/>,itemtext:'St.Thoms collenge'},
-]
+const Education = ({profile}) => {
+  
     return (
       <>
         <List >
-        {
-          education.map((item) =>(
-            <>
-            <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              {item.icon}
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={<Typography
-                component="span"
-                variant="h5"
-                color="textPrimary"
-              >
-               {item.header}
-          </Typography>}/>
-        </ListItem>
-        <ListItem className={classes.nested}>
-          <ListItemText primary={item.itemtext}/>
-        </ListItem>
-        </>
-          ))
-        }
-        
+          <MainListItem header="Department"/>
+          <SubListItem icon={<School/>} primary={profile.department} secondary="Deparmemt"/>
         </List>
+        <List >
+          <MainListItem header="School"/>
+          <SubListItem icon={<School/>} primary={profile.school} secondary="School"/>
+        </List>
+
         </>
     )
 }
 
-export default Education;
+const mapStateToProps = state => ({
+  profile: state.profile.ownerProfile
+})
+
+export default connect(mapStateToProps)(Education);

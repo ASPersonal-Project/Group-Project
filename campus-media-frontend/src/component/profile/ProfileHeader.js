@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import { Grid, makeStyles, Typography,Container,Tabs,Tab} from '@material-ui/core';
 
@@ -12,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const ProfileHeader = ({value}) => {
+const ProfileHeader = ({value,profile}) => {
     const classes = useStyles();
+//    {profile && console.log(profile._id)}; 
     
     return (
         <Container >
@@ -26,7 +28,7 @@ const ProfileHeader = ({value}) => {
             </Grid>
             
             <Grid container justify='center'>
-                <Typography variant="h4">Anjna Shakthi</Typography>
+                {profile && <Typography variant="h4">{profile.user.username}</Typography>}
             </Grid>
            
           <Tabs
@@ -45,4 +47,8 @@ const ProfileHeader = ({value}) => {
     )
 }
 
-export default ProfileHeader
+const mapStateToProps = state =>({
+    profile:state.profile.ownerProfile
+})
+
+export default connect(mapStateToProps)(ProfileHeader);
